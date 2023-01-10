@@ -1,0 +1,282 @@
+/* ======================================================================== */ 
+
+ /*                      NOT RELATED TO THE TTUTORIAL                        */
+
+/* ======================================================================== */
+
+*{
+	
+	
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	outline: none;
+	list-style: none;
+
+}
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	outline: none;
+	list-style: none;
+}
+
+:root {
+  --step--2: clamp(0.69rem, calc(0.58rem + 0.60vw), 1.00rem);
+  --step--1: clamp(0.83rem, calc(0.67rem + 0.81vw), 1.25rem);
+  --step-0: clamp(1.00rem, calc(0.78rem + 1.10vw), 1.56rem);
+  --step-1: clamp(1.20rem, calc(0.91rem + 1.47vw), 1.95rem);
+  --step-2: clamp(1.44rem, calc(1.05rem + 1.95vw), 2.44rem);
+  --step-3: clamp(1.73rem, calc(1.21rem + 2.58vw), 3.05rem);
+  --step-4: clamp(2.07rem, calc(1.39rem + 3.40vw), 3.82rem);
+  --step-5: clamp(2.49rem, calc(1.60rem + 4.45vw), 4.77rem);
+	
+	/* Font style */
+	
+	--ff-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	
+	/* Color style */
+	
+	--color-primary: #0575E6;
+	--color-secondary: #6dd5ed;
+	--color-primary-light:#8dc6ff;
+	--color-primary-dark:#021B79;
+	--color-error:#cc3333;
+	--color-success:#4bb544;
+	--color-link:#606470;
+	--color-text:#5f6769;
+	--color-header-dark:#393e46;
+	--color-background:#f5f9ee;
+	--color-border-sc:#ececec;
+	--color-border-focus:#69c2ff;
+	--color-border:#d3d6db;
+	--bs:#ffa857;
+	--color-percentage:#5f6769;
+	--color-header-light:#9ba6a5;
+	--color-border-focus:#a9d7f6;
+	--color-input-background:#f5f9ee;
+	--gradient: linear-gradient(135deg var(--color-primary), var(--color-secondary));
+	
+}
+
+body {
+    min-height:  100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: var(--ff-primary);
+  }
+
+html, body {
+	height: 100%;
+}
+
+
+/* ======================================================================== */ 
+
+ /*                      RELATED TO THE TTUTORIAL                        */
+
+/* ======================================================================== */
+
+
+
+body {
+    display: grid;
+    place-items: center;
+    background-image: url(assets/layered-waves-haikei.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 1.9rem;
+    animation: rotate 6s infinite alternate linear;
+}
+
+@keyframes rotate {
+    100% {
+        background-position: 15% 70%;
+    }
+}
+
+@media (width >= 500px) {
+    body {
+        padding: 0;
+    }
+}
+
+.login-container {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    border-radius: .5rem;
+    margin: 0 1.9rem;
+    padding: 70px 35px 45px;
+    text-align: center;
+    z-index: 2;
+}
+
+@media (width >= 500px) {
+    .login-container{
+        width: 450px;
+        margin: 0;
+    }
+}
+
+/* .login-container .title {
+    
+} */
+
+.login-container .title h2 {
+    font-size: var(--step-2);
+    letter-spacing: 2px;
+    margin-bottom: .9rem;
+}
+
+.login-container .title h3 {
+    color: rgb(0 0 0 / 45%);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.login-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 1rem;
+    margin-top: 2.5rem;
+    /* display: grid;
+    grid-gap: 1rem; */
+}
+
+.input-field {
+    position: relative;
+}
+
+.border-radius {
+    border-radius: .5rem;
+}
+
+:is(.input-field > input, form > button) {
+    width: 100%;
+    height: 56px;
+}
+
+.input-field input {
+    color: #616060;
+    border: 2px solid #e9e9e9;
+    font-size: var(--step--2);
+    padding: 0 1.6rem;
+}
+
+.input-field label {
+    position: absolute;
+	top: 50%;
+	left: 1.6rem;
+	translate: 0 -50%;
+	color: rgb(0 0 0 / 40%);
+	pointer-events: none;
+	transition: .4s;
+}
+
+:is(input:focus ~ label, 
+input:valid ~ label) {
+    background: #fff;
+    translate: -20px -40px;
+    padding: 0 .6rem;
+    scale: 0.875;
+}
+
+form span {
+    color: rgb(0 0 0 / 41%);
+    text-align: left;
+    padding: 0 1rem;
+    margin-top: -12px;
+}
+
+
+/* -----------------The start of Validation* ----------------- */
+
+:is(.input-field > input:focus, .input-field > input:not(:placeholder-shown)) {
+	border-color: var(--color-border-focus);
+}
+
+.input-field > input:focus:valid {
+	box-shadow: 0 0 1px solid var(--color-success);
+	border-color: var(--color-success);
+}
+
+.input-field > input:valid:not(:placeholder-shown) {
+	border-color: var(--color-success);
+}
+
+.input-field > input:valid:not(:placeholder-shown) ~ label {
+    color: var(--color-success);
+    transition-duration: 0s;
+}
+
+.input-field > input:focus:invalid {
+	box-shadow: 0 0 1px solid var(--color-error);
+}
+
+.input-field > input:invalid:not(:placeholder-shown) {
+	border-color: var(--color-error);
+}
+
+.input-field > input:invalid:not(:placeholder-shown) ~ label {
+    color: var(--color-error);
+}
+
+.input-field > input:invalid:not(:placeholder-shown) span {
+    color: var(--color-error);
+}
+
+/* -----------------The end of Validation* ----------------- */
+
+.login-container form a{
+    color: #555AAD;
+    font-size: var(--step--2);
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.login-container form button{
+    color: #f9f9f9;
+    background: #007FC1;
+    border: 0;
+    outline: 0;
+    font-size: var(--step--1);
+    font-weight: 600;
+    padding: 0 1.6rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.login-container form button:hover {
+    background: #0398e8;
+}
+
+.copy {
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	transform: translate(-50%, -50%);
+	font-size: var(--step-0);
+	font-weight: 200;
+}
+
+.copy p {
+	color: #dcdcdc;
+    font-size: var(--step-1);
+}
+
+.copy a {
+	color: #0398e8;
+	font-size: var(--step--1);
+	font-weight: 100;
+	letter-spacing: 1px;
+}
