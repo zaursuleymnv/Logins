@@ -1,0 +1,5 @@
+@mixin aspect-ratio($property){
+    -webkit-aspect-ratio: $property;
+    -ms-aspect-ratio: $property;
+    aspect-ratio: $property;
+}

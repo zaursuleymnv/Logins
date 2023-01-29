@@ -1,0 +1,162 @@
+/* ======================================================================== */
+/*                      NOT RELATED TO THE TTUTORIAL                        */
+/* ======================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  list-style: none;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  list-style: none;
+}
+
+:root {
+  --step--2: clamp(0.69rem, calc(0.58rem + 0.60vw), 1.00rem);
+  --step--1: clamp(0.83rem, calc(0.67rem + 0.81vw), 1.25rem);
+  --step-0: clamp(1.00rem, calc(0.78rem + 1.10vw), 1.56rem);
+  --step-1: clamp(1.20rem, calc(0.91rem + 1.47vw), 1.95rem);
+  --step-2: clamp(1.44rem, calc(1.05rem + 1.95vw), 2.44rem);
+  --step-3: clamp(1.73rem, calc(1.21rem + 2.58vw), 3.05rem);
+  --step-4: clamp(2.07rem, calc(1.39rem + 3.40vw), 3.82rem);
+  --step-5: clamp(2.49rem, calc(1.60rem + 4.45vw), 4.77rem);
+}
+
+html, body {
+  height: 100%;
+}
+
+/* ======================================================================== */
+/*                      RELATED TO THE TTUTORIAL                        */
+/* ======================================================================== */
+body {
+  display: grid;
+  place-items: center;
+  background-image: url(../assets/Trianglify-10s-1536px.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: move 6s infinite alternate linear;
+  padding: 0 2rem;
+}
+@media (width >= 768px) {
+  body {
+    padding: 0;
+  }
+}
+@keyframes move {
+  100% {
+    background-position: 15% 50%;
+  }
+}
+
+.login {
+  position: fixed;
+  width: 90%;
+  background: #fff;
+  text-align: center;
+  border-radius: 1.3rem;
+  padding: 70px 30px 44px;
+  z-index: 3;
+}
+@media (min-width: 576px) {
+  .login {
+    width: min(90%, 420px);
+  }
+}
+@media (min-width: 768px) {
+  .login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    height: 100%;
+    border-radius: 0;
+    padding-top: 150px;
+  }
+}
+@media (min-width: 1200px) {
+  .login {
+    width: 25%;
+  }
+}
+.login .picture-avatar {
+  width: 190px;
+  height: 190px;
+  background: #2A272A;
+  border-radius: 50%;
+  padding: 2px;
+}
+.login .picture-avatar img {
+  width: 100%;
+  -webkit-aspect-ratio: 1;
+  -ms-aspect-ratio: 1;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.login .content {
+  margin: 1.9rem 0 2.5rem;
+}
+.login .content .h2 {
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+.login .content h3 {
+  color: rgba(0, 0, 0, 0.58);
+  font-weight: 500;
+  font-size: var(--step--2);
+}
+.login .login-form {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.login .login-form :is(input, button) {
+  height: 55px;
+  outline: 0;
+}
+.login .login-form input {
+  color: rgba(0, 0, 0, 0.72);
+  border: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.login .login-form input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+.login .login-form button {
+  letter-spacing: 2px;
+}
+.login .login-form .forgot-pass {
+  color: #7f3ff5;
+  text-align: left;
+  text-decoration: none;
+}
+
+.copy {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-40%, -50%);
+  font-size: var(--step-0);
+  font-weight: 200;
+}
+.copy p {
+  color: #f9f9f9;
+}
+.copy p a {
+  color: #858585;
+  font-size: var(--step--1);
+  font-weight: 100;
+  letter-spacing: 1px;
+}/*# sourceMappingURL=style.css.map */

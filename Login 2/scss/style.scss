@@ -1,0 +1,124 @@
+@import 'partial/mixins';
+@import 'partial/variables';
+@import 'partial/reset';
+
+
+
+body {
+    display: grid;
+    place-items: center;
+    background-image: url(#{$assetPath}/Trianglify-10s-1536px.svg);
+    background-repeat: no-repeat;
+	background-size: cover;
+    animation: move 6s infinite alternate linear;
+    padding: 0 2rem;
+
+    @media (width >= 768px) {
+        padding: 0;
+    }
+
+    @keyframes move {
+        100% {
+          background-position: 15% 50%;
+        }
+    }
+}
+
+.login {
+    position: fixed;
+    width: 90%;
+    background: #fff;
+    text-align: center;
+    border-radius: 1.3rem;
+    padding: 70px 30px 44px;
+    z-index: 3;
+
+    @media (min-width: 576px) {
+        width: min(90%, 420px);
+    }
+    @media (min-width: 768px) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: auto;
+        height: 100%;
+        border-radius: 0;
+        padding-top: 150px;
+    }
+    @media (min-width: 1200px) {
+        width: 25%;
+    }
+    .picture-avatar {
+        width: 190px;
+        height: 190px;
+        background: $avatar-bg;
+        border-radius: 50%;
+        padding: 2px;
+
+        img{
+            width: 100%;
+            @include aspect-ratio(1/1);
+            object-fit: cover;
+        }
+    }
+    .content {
+        margin: 1.9rem 0 2.5rem;
+
+        .h2 {
+            font-size: var(--step--1);
+            font-weight: 700;
+            // margin: 0 0 2.5rem;
+        }
+        h3{
+            color: $h3-color;
+            font-weight: 500;
+            font-size: var(--step--2);
+        }
+    }
+    .login-form {
+        display: grid;
+        place-items: center;
+        gap:1rem;
+        width: 100%;
+        :is(input, button) {
+            height: 55px;
+            outline: 0;
+        }
+        input {
+            color: $input-color;
+            border: 0;
+            border-bottom: $border-bottom-values;
+            text-align: center;
+            &::placeholder {
+                color: $input-placeholder-color;
+            }
+        }
+        button {
+            letter-spacing: 2px;
+        }
+        .forgot-pass {
+            color: $link;
+            text-align: left;
+            text-decoration: none;
+        }
+    }
+}
+.copy {
+    position: absolute;
+    top: 50%;
+	left: 40%;
+	transform: translate(-40%, -50%);
+	font-size: var(--step-0);
+	font-weight: 200;
+
+    p {
+        color: #f9f9f9;
+
+        a{
+            color: #858585;
+	        font-size: var(--step--1);
+	        font-weight: 100;
+	        letter-spacing: 1px;
+        }
+    }
+}
